@@ -1,0 +1,13 @@
+top1,top1-5,top6-10,top2-5,top10-50,top>50
+top1.1,top1-5.1,top6-10.1,top2-5.1,top10-50.1,top>50.1
+top1.2,top1-5.2,top6-10.2,top2-5.2,top10-50.2,top>50.2
+top1.3,top1-5.3,top6-10.3,top2-5.3,top10-50.3,top>50.3
+top1.4,top1-5.4,top6-10.4,top2-5.4,top10-50.4,top>50.4
+top1.5,top1-5.5,top6-10.5,top2-5.5,top10-50.5,top>50.5
+top1.6,top1-5.6,top6-10.6,top2-5.6,top10-50.6,top>50.6
+top1.7,top1-5.7,top6-10.7,top2-5.7,top10-50.7,top>50.7
+top1.8,top1-5.8,top6-10.8,top2-5.8,top10-50.8,top>50.8
+top1.9,top1-5.9,top6-10.9,top2-5.9,top10-50.9,top>50.9
+top1.10,top1-5.10,top6-10.10,top2-5.10,top10-50.10,top>50.10
+top1.11,top1-5.11,top6-10.11,top2-5.11,top10-50.11,top>50.11
+density,periphery,avershortest,average_node_connectivity,trans,degree_assortativity,number_nodes,number_edges,number_clique,diameter
