@@ -4,7 +4,7 @@ Rank MVFM参数说明
 
 --valid_file	选做测试集的文件名，其它文件当训练集 例如coop1_centrality.csv则此文件当测试集，其他文件当训练集
 
---save_path 	结果保存文件路径，会覆盖原始文件 例如save/test.csv
+--save_path 	结果保存文件路径，会覆盖原始文件 例如data/result.csv
 
 --hidden_dim 	隐向量维度 默认5
 
