@@ -65,15 +65,3 @@ class mvFm:
                 dot_res = tf.multiply(dot_res, node)  # bs,dim
         y = tf.reduce_sum(dot_res, axis=-1)  # bs
         return y
-    def cal_reg( self ,view_list):
-        a=tf.abs(self.a)
-        a_list = tf.split(a, view_list, axis=0)  # [view_size,dim]
-        a_list=[tf.reduce_sum(node,axis=0,keepdims=False) for node in a_list]  #dim
-        res=None
-        for node in a_list:
-            if res is None:
-                res=node
-            else:
-                res=tf.multiply(res,node)
-        res=tf.reduce_sum(res)
-        return res

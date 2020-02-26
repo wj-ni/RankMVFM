@@ -22,11 +22,14 @@ class mvFm:
         with tf.variable_scope('loss'):
             y_first=self.first
             y_pos=self.pos
-            y_pos_mean=tf.reduce_mean(self.pos)
-            y_neg_mean = tf.reduce_mean(self.neg)  # 1
-            y=y_first-y_pos_mean+y_pos-y_neg_mean   #等级为2的-等级为1的均值+等级为1的-等级为0的均值    [bs]    bs=等级为1的数目
-            label = tf.ones_like(y, dtype=tf.float32, name='labels')
-            self.loss = tf.losses.hinge_loss(label, y, reduction=tf.losses.Reduction.MEAN)
+            y_neg=self.neg
+            y_first_expand=tf.expand_dims(y_first,dim=-1)
+            y_pos_expand=tf.expand_dims(y_pos,dim=0)
+            self.loss1=tf.reduce_sum(tf.log(tf.exp(y_pos_expand-y_first_expand)+1))     #ln(e^-(first-pos))+ln(e^-(pos-neg))
+            y_pos_expand=tf.expand_dims(y_first,dim=1)
+            y_neg_expand=tf.expand_dims(y_neg,dim=0)
+            self.loss2=tf.reduce_sum(tf.log(tf.exp(y_neg_expand-y_pos_expand)+1))
+            self.loss=self.loss1+self.loss2
             if use_l1:
                 self.loss+=tf.contrib.layers.l1_regularizer(self.l1_reg)(self.var_a)
             if use_l2:

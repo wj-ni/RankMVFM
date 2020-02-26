@@ -24,7 +24,7 @@ Rank MVFM参数说明
 
 --new_reg	新正则系数 默认0.1
 
---loss		损失函数，只有hinge和mean_square 默认hinge
+--loss		损失函数，有hinge,mean_square,bpr 默认bpr
 
 --print		是否打印结果 默认True
 
