@@ -26,7 +26,7 @@ python main.py \
   --lr=0.01 \
   --epoch=10 \
   --use_l1=False \
-  --use_l1=False \
+  --use_l2=False \
   --use_new_reg=False \
   --l1_reg=0.1 \
   --l2_reg=0.1 \
@@ -43,7 +43,7 @@ optional arguments:
   --lr                  Learning Rate
   --epoch               Training echo
   --use_l1              Use L1 regular or not
-  --use_l2              Use L1 regular or not
+  --use_l2              Use L2 regular or not
   --use_new_reg         Use new regular or not
   --l1_reg              L1 regular coefficient                      
   --l2_reg              L2 regular coefficient
