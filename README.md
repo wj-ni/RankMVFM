@@ -19,7 +19,7 @@ Usage
 =======
 ### Example Usage
 ```shell
-python main.py.py \
+python main.py \
   --files_path=data\weici\ \
   --valid_file=coop1_centrality.csv \
   --save_path=save\result.txt \
