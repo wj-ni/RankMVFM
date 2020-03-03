@@ -27,7 +27,7 @@ class mvFm:
             y_neg=self.neg
             y_first_expand=tf.expand_dims(y_first,dim=-1)
             y_pos_expand=tf.expand_dims(y_pos,dim=0)
-            self.loss1=tf.reduce_sum(tf.log(tf.exp((y_pos_expand-y_first_expand)*self.bpr_weight)+1))     #ln(e^-(first-pos))+ln(e^-(pos-neg))
+            self.loss1=tf.reduce_sum(tf.log(tf.exp((y_pos_expand-y_first_expand)*self.bpr_weight)+1))     #ln(e^-(first-pos))+ln(e^-(pos-neg)+1)
             y_pos_expand=tf.expand_dims(y_first,dim=1)
             y_neg_expand=tf.expand_dims(y_neg,dim=0)
             self.loss2=tf.reduce_sum(tf.log(tf.exp((y_neg_expand-y_pos_expand)*self.bpr_weight)+1))
