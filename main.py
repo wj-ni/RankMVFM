@@ -8,6 +8,7 @@ import pandas as pd
 import argparse
 import os
 
+#rank mvfm
 class LossCommand():
     def __init__(self,sess):
         self.sess=sess

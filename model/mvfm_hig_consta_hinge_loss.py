@@ -1,4 +1,5 @@
 import tensorflow as tf
+#rank mvfm
 class mvFm:
     def __init__(self,view_list,dim,learning_rate,use_l1=False,use_l2=False,use_new_reg=False,l1_reg=0.1,l2_reg=0.1,new_reg=0.1):
         for node in view_list:
