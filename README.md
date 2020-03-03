@@ -1,18 +1,23 @@
-###Rank MVFM
+Rank MVFM
+=======
 Source codes for Rank Multi-View Factorization Machine
 
-###Requirement:
+Requirement:
+======
 Python 3.6  
 Tensorflow-gpu 1.10.0
 
-###Input data:
+Input data:
+=======
 data/weici/*
 
-###Group data:
+Group data:
+========
 group_config.txt (Save file groups, each line represents a group)
 
-### Usage
-##### Example Usage
+Usage
+=======
+### Example Usage
 ```shell
 python main.py.py \
   --files_path=data\weici\ \
@@ -29,7 +34,7 @@ python main.py.py \
   --loss=bpr \
   --print=True
 ```
-##### Full Command List
+### Full Command List
 ```shell
 optional arguments:
   --files_path          Original data folder
