@@ -51,6 +51,6 @@ optional arguments:
   --loss                Loss function(hinge,mean_square,bpr)
   --print               Print results or not
 ```
-Contact information
+Contact mailbox 
 =======
 464983252@qq.com
