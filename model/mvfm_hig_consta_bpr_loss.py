@@ -1,7 +1,7 @@
 import tensorflow as tf
 #rank mvfm
 class mvFm:
-    def __init__(self,view_list,dim,learning_rate,use_l1=False,use_l2=False,use_new_reg=False,l1_reg=0.1,l2_reg=0.1,new_reg=0.1):
+    def __init__(self,view_list,dim,learning_rate,use_l1=False,use_l2=False,use_new_reg=False,l1_reg=0.1,l2_reg=0.1,new_reg=0.1,bpr_weight=1.0):
         for node in view_list:
             assert type(node) is int,'view_list 数据类型必须是整数'
             assert node>0,'view_list的值必须大于0'
@@ -9,6 +9,7 @@ class mvFm:
         self.learning_rate=learning_rate
         self.view_size=len(view_list)
         self.view_sum=0
+        self.bpr_weight=bpr_weight
         for node in view_list:
             self.view_sum+=node
         self.view_list_decrement=[node-1 for node in view_list]
@@ -26,10 +27,10 @@ class mvFm:
             y_neg=self.neg
             y_first_expand=tf.expand_dims(y_first,dim=-1)
             y_pos_expand=tf.expand_dims(y_pos,dim=0)
-            self.loss1=tf.reduce_sum(tf.log(tf.exp(y_pos_expand-y_first_expand)+1))     #ln(e^-(first-pos))+ln(e^-(pos-neg))
+            self.loss1=tf.reduce_sum(tf.log(tf.exp((y_pos_expand-y_first_expand)*self.bpr_weight)+1))     #ln(e^-(first-pos))+ln(e^-(pos-neg))
             y_pos_expand=tf.expand_dims(y_first,dim=1)
             y_neg_expand=tf.expand_dims(y_neg,dim=0)
-            self.loss2=tf.reduce_sum(tf.log(tf.exp(y_neg_expand-y_pos_expand)+1))
+            self.loss2=tf.reduce_sum(tf.log(tf.exp((y_neg_expand-y_pos_expand)*self.bpr_weight)+1))
             self.loss=self.loss1+self.loss2
             if use_l1:
                 self.loss+=tf.contrib.layers.l1_regularizer(self.l1_reg)(self.var_a)
